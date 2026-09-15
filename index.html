@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#eaf7f5">
+<title>Chen's New Zealand South Island Road Trip</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="kicker">NEW ZEALAND · SOUTH ISLAND</div>
+  <h1>Chen's Road Trip 🥝</h1>
+  <p class="subtitle">10/27 → 11/9 · 14 Days · Christchurch → Kaikōura → Akaroa → Tekapo → Aoraki / Mt Cook → Wanaka → Queenstown → Milford Sound → Christchurch</p>
+  <div class="pills"><span class="pill">🚗 自駕</span><span class="pill">🐋 動物</span><span class="pill">🥾 健行</span><span class="pill">♨️ 泡湯</span><span class="pill">🌌 星空</span></div>
+</header>
+
+<main class="wrap">
+  <div class="app-tabs" role="tablist" aria-label="旅行功能">
+    <button class="app-tab active" data-tab="itinerary" role="tab">🗺️ 行程</button>
+    <button class="app-tab" data-tab="expenses" role="tab">💰 旅費／記帳</button>
+  </div>
+  <section id="tab-itinerary" class="tab-panel">
+  
+<section class="map-section">
+  <div class="map-title-row">
+    <div>
+      <h2>🗺️ 南島總覽地圖</h2>
+      <p>點地圖上的站點查看日期；可切換只看某一天。地圖底圖來自 OpenStreetMap。</p>
+    </div>
+    <div class="map-tools">
+      <button class="map-filter active" data-map-day="all">全部路線</button>
+      <button class="map-filter" data-map-day="2">D2</button>
+      <button class="map-filter" data-map-day="3">D3</button>
+      <button class="map-filter" data-map-day="6">D6</button>
+      <button class="map-filter" data-map-day="7">D7</button>
+      <button class="map-filter" data-map-day="8">D8</button>
+      <button class="map-filter" data-map-day="9">D9</button>
+      <button class="map-filter" data-map-day="10">D10</button>
+      <button class="map-filter" data-map-day="11">D11</button>
+      <button class="map-filter" data-map-day="12">D12</button>
+      <button class="map-filter" data-map-day="13">D13</button>
+    </div>
+  </div>
+  <div id="trip-map" aria-label="紐西蘭南島行程總覽地圖"></div>
+  <div class="map-legend"><span><i class="legend-dot"></i>住宿／主要停留點</span><span>🚗 路線為行程概略連線，實際駕駛請以 Google Maps 導航為準</span></div>
+</section>
+
+  <nav class="day-nav" aria-label="快速跳到日期"><button class="day-chip" data-target="1">1</button><button class="day-chip" data-target="2">2</button><button class="day-chip" data-target="3">3</button><button class="day-chip" data-target="4">4</button><button class="day-chip" data-target="5">5</button><button class="day-chip" data-target="6">6</button><button class="day-chip" data-target="7">7</button><button class="day-chip" data-target="8">8</button><button class="day-chip" data-target="9">9</button><button class="day-chip" data-target="10">10</button><button class="day-chip" data-target="11">11</button><button class="day-chip" data-target="12">12</button><button class="day-chip" data-target="13">13</button><button class="day-chip" data-target="14">14</button></nav>
+  <section class="grid">
+    
+    <article class="day-card" id="day-1" data-day="1">
+      <div class="day-head">
+        <div class="day-badge">DAY 1</div>
+        <div><div class="date">10/27（二）</div><h2>Christchurch</h2></div>
+      </div>
+      <div class="theme">✈️ 台灣出發</div>
+      <p class="route">台灣 → Christchurch</p>
+      <div class="stay">🛏️ 住宿：<strong>—</strong></div>
+      <div class="spots"><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Taiwan+Taoyuan+International+Airport">📍 台灣桃園國際機場 <span>Map ↗</span></a><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Christchurch+Airport+New+Zealand">📍 Christchurch Airport <span>Map ↗</span></a></div>
+    </article>
+    <article class="day-card" id="day-2" data-day="2">
+      <div class="day-head">
+        <div class="day-badge">DAY 2</div>
+        <div><div class="date">10/28（三）</div><h2>Christchurch</h2></div>
+      </div>
+      <div class="theme">抵達＋市區慢遊</div>
+      <p class="route">機場 → 飯店 → New Regent Street → Cathedral Square → Riverside Market → Avon River</p>
+      <div class="stay">🛏️ 住宿：<strong>Christchurch</strong></div>
+      <div class="spots"><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Christchurch+Airport+New+Zealand">📍 Christchurch Airport <span>Map ↗</span></a><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=New+Regent+Street+Christchurch">📍 New Regent Street <span>Map ↗</span></a><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Cathedral+Square+Christchurch">📍 Cathedral Square <span>Map ↗</span></a><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Riverside+Market+Christchurch">📍 Riverside Market <span>Map ↗</span></a><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Avon+River+Christchurch">📍 Avon River <span>Map ↗</span></a></div>
+    </article>
+    <article class="day-card" id="day-3" data-day="3">
+      <div class="day-head">
+        <div class="day-badge">DAY 3</div>
+        <div><div class="date">10/29（四）</div><h2>Christchurch → Kaikōura</h2></div>
+      </div>
+      <div class="theme">海岸＋海豹</div>
+      <p class="route">開車約 2.5 小時 → Kaikōura Peninsula → Seal Colony → 海岸散步 → 夕陽</p>
+      <div class="stay">🛏️ 住宿：<strong>Kaikōura</strong></div>
+      <div class="spots"><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kaikoura+Peninsula+New+Zealand">📍 Kaikōura Peninsula <span>Map ↗</span></a><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kaikoura+Seal+Colony+Point+Kean">📍 Kaikōura Seal Colony <span>Map ↗</span></a></div>
+    </article>
+    <article class="day-card" id="day-4" data-day="4">
+      <div class="day-head">
+        <div class="day-badge">DAY 4</div>
+        <div><div class="date">10/30（五）</div><h2>Kaikōura</h2></div>
+      </div>
+      <div class="theme">Whale Watching</div>
+      <p class="route">上午 Whale Watching → 午餐 → Peninsula Walkway → 小鎮／咖啡</p>
+      <div class="stay">🛏️ 住宿：<strong>Kaikōura</strong></div>
+      <div class="spots"><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Whale+Watch+Kaikoura">📍 Whale Watch Kaikōura <span>Map ↗</span></a><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kaikoura+Peninsula+Walkway">📍 Kaikōura Peninsula Walkway <span>Map ↗</span></a><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kaikoura+New+Zealand">📍 Kaikōura Town <span>Map ↗</span></a></div>
+    </article>
+    <article class="day-card" id="day-5" data-day="5">
+      <div class="day-head">
+        <div class="day-badge">DAY 5</div>
+        <div><div class="date">10/31（六）</div><h2>Kaikōura → Christchurch</h2></div>
+      </div>
+      <div class="theme">回 Christchurch＋逛街</div>
+      <p class="route">早餐 → 海邊散步 → 開車回 Christchurch → Riverside Market → Cashel Street → New Regent Street</p>
+      <div class="stay">🛏️ 住宿：<strong>Christchurch</strong></div>
+      <div class="spots"><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Riverside+Market+Christchurch">📍 Riverside Market <span>Map ↗</span></a><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Cashel+Street+Christchurch">📍 Cashel Street <span>Map ↗</span></a><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=New+Regent+Street+Christchurch">📍 New Regent Street <span>Map ↗</span></a></div>
+    </article>
+    <article class="day-card" id="day-6" data-day="6">
+      <div class="day-head">
+        <div class="day-badge">DAY 6</div>
+        <div><div class="date">11/1（日）</div><h2>Christchurch ↔ Akaroa</h2></div>
+      </div>
+      <div class="theme">Akaroa 一日遊</div>
+      <p class="route">開車約 1.5 小時 → Rue Lavaud → Akaroa Harbour → Hector's Dolphin Cruise → 小鎮／咖啡 → 回 Christchurch</p>
+      <div class="stay">🛏️ 住宿：<strong>Christchurch</strong></div>
+      <div class="spots"><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Rue+Lavaud+Akaroa">📍 Rue Lavaud <span>Map ↗</span></a><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Akaroa+Harbour+New+Zealand">📍 Akaroa Harbour <span>Map ↗</span></a><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Akaroa+Dolphins+Hector%27s+Dolphin+Cruise">📍 Hector&#x27;s Dolphin Cruise <span>Map ↗</span></a></div>
+    </article>
+    <article class="day-card" id="day-7" data-day="7">
+      <div class="day-head">
+        <div class="day-badge">DAY 7</div>
+        <div><div class="date">11/2（一）</div><h2>Christchurch → Lake Tekapo</h2></div>
+      </div>
+      <div class="theme">湖＋泡湯＋星空</div>
+      <p class="route">開車約 3 小時 → Church of the Good Shepherd → Lake Tekapo → Tekapo Hot Pools → Dark Sky Project</p>
+      <div class="stay">🛏️ 住宿：<strong>Lake Tekapo</strong></div>
+      <div class="spots"><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Church+of+the+Good+Shepherd+Lake+Tekapo">📍 Church of the Good Shepherd <span>Map ↗</span></a><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Lake+Tekapo+New+Zealand">📍 Lake Tekapo <span>Map ↗</span></a><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Tekapo+Springs">📍 Tekapo Hot Pools <span>Map ↗</span></a><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Dark+Sky+Project+Lake+Tekapo">📍 Dark Sky Project <span>Map ↗</span></a></div>
+    </article>
+    <article class="day-card" id="day-8" data-day="8">
+      <div class="day-head">
+        <div class="day-badge">DAY 8</div>
+        <div><div class="date">11/3（二）</div><h2>Tekapo → Aoraki / Mt Cook</h2></div>
+      </div>
+      <div class="theme">Tasman Glacier 健行</div>
+      <p class="route">開車約 1.5 小時 → Tasman Glacier View Track／Tasman Lake → Hermitage → Mt Cook Village → 晚餐／星空</p>
+      <div class="stay">🛏️ 住宿：<strong>Mt Cook</strong></div>
+      <div class="spots"><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Tasman+Glacier+View+Track+New+Zealand">📍 Tasman Glacier View Track <span>Map ↗</span></a><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Tasman+Lake+New+Zealand">📍 Tasman Lake <span>Map ↗</span></a><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=The+Hermitage+Hotel+Mount+Cook">📍 The Hermitage <span>Map ↗</span></a><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Aoraki+Mount+Cook+Village">📍 Mt Cook Village <span>Map ↗</span></a></div>
+    </article>
+    <article class="day-card" id="day-9" data-day="9">
+      <div class="day-head">
+        <div class="day-badge">DAY 9</div>
+        <div><div class="date">11/4（三）</div><h2>Aoraki / Mt Cook → Wanaka</h2></div>
+      </div>
+      <div class="theme">Hooker Valley 健行</div>
+      <p class="route">早起 → Hooker Valley Track → 午餐 → 下午慢慢前往 Wanaka</p>
+      <div class="stay">🛏️ 住宿：<strong>Wanaka</strong></div>
+      <div class="spots"><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Hooker+Valley+Track+New+Zealand">📍 Hooker Valley Track <span>Map ↗</span></a><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Lake+Wanaka+New+Zealand">📍 Wanaka Lakefront <span>Map ↗</span></a></div>
+    </article>
+    <article class="day-card" id="day-10" data-day="10">
+      <div class="day-head">
+        <div class="day-badge">DAY 10</div>
+        <div><div class="date">11/5（四）</div><h2>Wanaka → Queenstown</h2></div>
+      </div>
+      <div class="theme">Wanaka＋Real Country</div>
+      <p class="route">上午 Wanaka 湖畔／小鎮 → 開車約 1–1.5 小時 → Queenstown → Real Country 農場活動</p>
+      <div class="stay">🛏️ 住宿：<strong>Queenstown</strong></div>
+      <div class="spots"><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Lake+Wanaka+New+Zealand">📍 Lake Wanaka <span>Map ↗</span></a><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Queenstown+New+Zealand">📍 Queenstown <span>Map ↗</span></a><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Real+Country+Kingston+Station+New+Zealand">📍 Real Country Kingston Station <span>Map ↗</span></a></div>
+    </article>
+    <article class="day-card" id="day-11" data-day="11">
+      <div class="day-head">
+        <div class="day-badge">DAY 11</div>
+        <div><div class="date">11/6（五）</div><h2>Queenstown → Milford Sound</h2></div>
+      </div>
+      <div class="theme">Milford Sound 一日遊</div>
+      <p class="route">早出發 → Te Anau → Milford Road → Cruise → 返回 Queenstown</p>
+      <div class="stay">🛏️ 住宿：<strong>Queenstown</strong></div>
+      <div class="spots"><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Te+Anau+New+Zealand">📍 Te Anau <span>Map ↗</span></a><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Milford+Road+New+Zealand">📍 Milford Road <span>Map ↗</span></a><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Milford+Sound+New+Zealand">📍 Milford Sound <span>Map ↗</span></a></div>
+    </article>
+    <article class="day-card" id="day-12" data-day="12">
+      <div class="day-head">
+        <div class="day-badge">DAY 12</div>
+        <div><div class="date">11/7（六）</div><h2>Queenstown → Cromwell → Omarama</h2></div>
+      </div>
+      <div class="theme">慢慢往北開</div>
+      <p class="route">Queenstown → Cromwell → Lindis Pass → Omarama；沿途拍照、咖啡、休息</p>
+      <div class="stay">🛏️ 住宿：<strong>Omarama</strong></div>
+      <div class="spots"><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Cromwell+New+Zealand">📍 Cromwell <span>Map ↗</span></a><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Lindis+Pass+New+Zealand">📍 Lindis Pass <span>Map ↗</span></a><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Omarama+New+Zealand">📍 Omarama <span>Map ↗</span></a></div>
+    </article>
+    <article class="day-card" id="day-13" data-day="13">
+      <div class="day-head">
+        <div class="day-badge">DAY 13</div>
+        <div><div class="date">11/8（日）</div><h2>Omarama → Lake Tekapo → Christchurch</h2></div>
+      </div>
+      <div class="theme">回 Christchurch</div>
+      <p class="route">早上出發 → Lake Pukaki／Tekapo 停留 → 開車回 Christchurch，約 3–3.5 小時＋沿途停留</p>
+      <div class="stay">🛏️ 住宿：<strong>Christchurch</strong></div>
+      <div class="spots"><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Lake+Pukaki+New+Zealand">📍 Lake Pukaki <span>Map ↗</span></a><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Lake+Tekapo+New+Zealand">📍 Lake Tekapo <span>Map ↗</span></a><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Christchurch+New+Zealand">📍 Christchurch <span>Map ↗</span></a></div>
+    </article>
+    <article class="day-card" id="day-14" data-day="14">
+      <div class="day-head">
+        <div class="day-badge">DAY 14</div>
+        <div><div class="date">11/9（一）</div><h2>Christchurch</h2></div>
+      </div>
+      <div class="theme">最後採買 → 機場</div>
+      <p class="route">早餐 → 最後 Shopping／超市 → 回飯店拿行李 → Christchurch Airport</p>
+      <div class="stay">🛏️ 住宿：<strong>—</strong></div>
+      <div class="spots"><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Riverside+Market+Christchurch">📍 Riverside Market <span>Map ↗</span></a><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Christchurch+Airport+New+Zealand">📍 Christchurch Airport <span>Map ↗</span></a></div>
+    </article>
+  </section>
+
+  </section>
+
+  <section id="tab-expenses" class="tab-panel" hidden>
+    <div class="expense-shell">
+      <div class="expense-top">
+        <div>
+          <h2>💰 旅費／記帳</h2>
+          <p>住宿、租車、油錢、活動、餐費都記在這裡；資料會保存在這台裝置的瀏覽器。</p>
+        </div>
+        <label class="fx-box">1 NZD = NT$ <input id="fx-rate" type="number" min="0" step="0.01" value="18"></label>
+      </div>
+
+      <div class="summary-grid">
+        <div class="summary-card"><div class="label">NZD 支出</div><div class="value" id="sum-nzd">NZ$0</div></div>
+        <div class="summary-card"><div class="label">TWD 支出</div><div class="value" id="sum-twd">NT$0</div></div>
+        <div class="summary-card"><div class="label">折合 NZD 總額</div><div class="value" id="total-nzd">NZ$0</div></div>
+        <div class="summary-card"><div class="label">折合 TWD 總額</div><div class="value" id="total-twd">NT$0</div></div>
+      </div>
+
+      <form id="expense-form" class="expense-form">
+        <select id="expense-day" aria-label="日期">
+          <option value="D1 · 10/27">D1 · 10/27</option><option value="D2 · 10/28">D2 · 10/28</option>
+          <option value="D3 · 10/29">D3 · 10/29</option><option value="D4 · 10/30">D4 · 10/30</option>
+          <option value="D5 · 10/31">D5 · 10/31</option><option value="D6 · 11/1">D6 · 11/1</option>
+          <option value="D7 · 11/2">D7 · 11/2</option><option value="D8 · 11/3">D8 · 11/3</option>
+          <option value="D9 · 11/4">D9 · 11/4</option><option value="D10 · 11/5">D10 · 11/5</option>
+          <option value="D11 · 11/6">D11 · 11/6</option><option value="D12 · 11/7">D12 · 11/7</option>
+          <option value="D13 · 11/8">D13 · 11/8</option><option value="D14 · 11/9">D14 · 11/9</option>
+        </select>
+        <select id="expense-cat" aria-label="分類">
+          <option>住宿</option><option>租車</option><option>油錢</option><option>活動</option>
+          <option>餐費</option><option>交通</option><option>購物</option><option>其他</option>
+        </select>
+        <select id="expense-currency" aria-label="幣別"><option value="NZD">NZD</option><option value="TWD">TWD</option></select>
+        <input id="expense-amount" type="number" min="0" step="0.01" placeholder="金額" required>
+        <input id="expense-note" class="wide" maxlength="80" placeholder="備註，例如：Queenstown 飯店">
+        <button type="submit">＋ 新增</button>
+      </form>
+
+      <div class="expense-actions">
+        <button class="soft-btn" id="export-expenses" type="button">⬇️ 匯出 CSV</button>
+        <button class="soft-btn" id="clear-expenses" type="button">🗑️ 清空</button>
+      </div>
+
+      <div id="expense-list" class="expense-list"></div>
+      <div class="storage-note">※ 這是純前端版本，不需要資料庫。使用 GitHub Pages 時，記帳資料會存在瀏覽器 localStorage；換電腦、換瀏覽器或清除網站資料後不會自動同步。</div>
+    </div>
+  </section>
+
+  <div class="footer">Small island, big happiness ♡<br>See you again, New Zealand 🥝</div>
+</main>
+<button class="top" aria-label="回到頂端" onclick="scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
