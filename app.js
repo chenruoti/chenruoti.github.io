@@ -1,25 +1,20 @@
 const tripStops = [
- {id:"chc",name:"Christchurch",lat:-43.5321,lng:172.6362,days:[2,5,6,14],note:"抵達、市區慢遊、Akaroa 基地、最後採買"},
- {id:"kaikoura",name:"Kaikōura",lat:-42.4008,lng:173.6814,days:[3,4],note:"海豹、海岸、Whale Watching"},
- {id:"akaroa",name:"Akaroa",lat:-43.8037,lng:172.9681,days:[6],note:"法式小鎮、Hector's Dolphin Cruise"},
- {id:"tekapo",name:"Lake Tekapo",lat:-44.0047,lng:170.4771,days:[7,13],note:"湖、教堂、泡湯、星空"},
- {id:"mtcook",name:"Aoraki / Mt Cook",lat:-43.7340,lng:170.0967,days:[8,9],note:"Tasman Lake、Hooker Valley"},
- {id:"wanaka",name:"Wānaka",lat:-44.6967,lng:169.1367,days:[9,10],note:"湖畔、小鎮"},
- {id:"queenstown",name:"Queenstown",lat:-45.0312,lng:168.6626,days:[10,11,12],note:"湖畔、Real Country 基地、Milford 出發"},
- {id:"kingston",name:"Kingston / Real Country",lat:-45.3318,lng:168.7142,days:[10],note:"Real Country 農場活動"},
- {id:"teanau",name:"Te Anau",lat:-45.4145,lng:167.7180,days:[11],note:"Milford Sound 路線停留"},
- {id:"milford",name:"Milford Sound",lat:-44.6716,lng:167.9256,days:[11],note:"峽灣 Cruise"},
- {id:"cromwell",name:"Cromwell",lat:-45.0384,lng:169.2001,days:[12],note:"往北途中停留"},
- {id:"lindis",name:"Lindis Pass",lat:-44.5897,lng:169.6532,days:[12],note:"景觀公路"},
- {id:"omarama",name:"Omarama",lat:-44.4882,lng:169.9678,days:[12,13],note:"住宿、休息"}
+ {id:"queenstown",name:"Queenstown",lat:-45.0312,lng:168.6626,days:[2,3,4,5],note:"Shotover Jet、Real Country / Milford 基地、湖畔"},
+ {id:"shotover",name:"Shotover Jet",lat:-44.9956,lng:168.6824,days:[2],note:"10/29 下午暫定活動"},
+ {id:"kingston",name:"Kingston / Real Country",lat:-45.3318,lng:168.7142,days:[3],note:"剪羊毛、牧羊犬、農場體驗"},
+ {id:"teanau",name:"Te Anau",lat:-45.4145,lng:167.7180,days:[4],note:"Milford Sound 路線停留"},
+ {id:"milford",name:"Milford Sound",lat:-44.6716,lng:167.9256,days:[4],note:"峽灣 Cruise"},
+ {id:"arrowtown",name:"Arrowtown",lat:-44.9380,lng:168.8354,days:[5],note:"可選停留"},
+ {id:"wanaka",name:"Wānaka",lat:-44.6967,lng:169.1367,days:[5,6],note:"湖畔、小鎮"},
+ {id:"lindis",name:"Lindis Pass",lat:-44.5897,lng:169.6532,days:[6],note:"北上景觀公路"},
+ {id:"pukaki",name:"Lake Pukaki",lat:-44.1062,lng:170.1736,days:[6,7],note:"Mt Cook 路線景觀"},
+ {id:"mtcook",name:"Aoraki / Mt Cook",lat:-43.7340,lng:170.0967,days:[6,7],note:"Tasman Lake、Hooker Valley"},
+ {id:"tekapo",name:"Lake Tekapo",lat:-44.0047,lng:170.4771,days:[7,8],note:"教堂、泡湯、星空"},
+ {id:"chc",name:"Christchurch",lat:-43.5321,lng:172.6362,days:[8,9,10,12,13],note:"市區、Akaroa 基地、最後採買"},
+ {id:"akaroa",name:"Akaroa",lat:-43.8037,lng:172.9681,days:[9],note:"Hector's Dolphin Cruise"},
+ {id:"kaikoura",name:"Kaikōura",lat:-42.4008,lng:173.6814,days:[10,11,12],note:"海豹、Whale Watching、半島步道"}
 ];
-const dayRoutes = {
-  2:["chc"], 3:["chc","kaikoura"], 4:["kaikoura"], 5:["kaikoura","chc"],
-  6:["chc","akaroa","chc"], 7:["chc","tekapo"], 8:["tekapo","mtcook"],
-  9:["mtcook","wanaka"], 10:["wanaka","queenstown","kingston","queenstown"],
-  11:["queenstown","teanau","milford","queenstown"],
-  12:["queenstown","cromwell","lindis","omarama"], 13:["omarama","tekapo","chc"], 14:["chc"]
-};
+const dayRoutes = {2:["queenstown","shotover","queenstown"],3:["queenstown","kingston","queenstown"],4:["queenstown","teanau","milford","queenstown"],5:["queenstown","arrowtown","wanaka"],6:["wanaka","lindis","pukaki","mtcook"],7:["mtcook","pukaki","tekapo"],8:["tekapo","chc"],9:["chc","akaroa","chc"],10:["chc","kaikoura"],11:["kaikoura"],12:["kaikoura","chc"],13:["chc"]};
 const map = L.map("trip-map",{scrollWheelZoom:false}).setView([-44.45,170.3],6);
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
   maxZoom:19, attribution:'&copy; OpenStreetMap contributors'
@@ -42,7 +37,7 @@ function drawMap(day="all"){
    mapLayers.push(m);
  });
  if(day==="all"){
-   const master=["chc","kaikoura","chc","akaroa","chc","tekapo","mtcook","wanaka","queenstown","kingston","queenstown","teanau","milford","queenstown","cromwell","lindis","omarama","tekapo","chc"];
+   const master=["queenstown","shotover","queenstown","kingston","queenstown","teanau","milford","queenstown","arrowtown","wanaka","lindis","pukaki","mtcook","pukaki","tekapo","chc","akaroa","chc","kaikoura","chc"];
    const pts=master.map(id=>tripStops.find(s=>s.id===id)).filter(Boolean).map(s=>[s.lat,s.lng]);
    const line=L.polyline(pts,{weight:4,opacity:.7,dashArray:"8 8"}).addTo(map); mapLayers.push(line);
  } else {
@@ -80,7 +75,7 @@ appTabs.forEach(btn=>btn.addEventListener("click",()=>{
 }));
 
 /* ===== Expenses ===== */
-const EXP_KEY="chen-nz-trip-expenses-v1", FX_KEY="chen-nz-trip-fx-v1";
+const EXP_KEY="chen-nz-trip-expenses-v2", FX_KEY="chen-nz-trip-fx-v1";
 let expenses=[];
 try{expenses=JSON.parse(localStorage.getItem(EXP_KEY)||"[]");}catch(e){expenses=[];}
 const fx=document.querySelector("#fx-rate");
