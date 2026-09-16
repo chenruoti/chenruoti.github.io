@@ -41,7 +41,6 @@ border:1px solid rgba(49,75,74,.10);padding:11px 13px;border-radius:14px;font-we
 .map-btn span{color:#5d8f87;font-size:12px;white-space:nowrap}
 .map-btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(49,75,74,.10)}
 .footer{text-align:center;color:var(--muted);padding:32px 0 0}
-.top{position:fixed;right:18px;bottom:18px;width:48px;height:48px;border-radius:50%;border:0;background:var(--ink);color:white;font-size:20px;box-shadow:var(--shadow);cursor:pointer}
 @media(max-width:720px){
  .hero{padding-top:34px} .grid{grid-template-columns:1fr} .day-card{padding:18px;border-radius:22px}
  h2{font-size:19px} .day-badge{min-width:58px;height:58px;border-radius:19px}
