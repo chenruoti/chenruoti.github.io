@@ -105,3 +105,13 @@ border:1px solid rgba(49,75,74,.10);padding:11px 13px;border-radius:14px;font-we
 .rental-plan{margin:0 0 18px;padding:18px 20px;border-radius:22px;background:linear-gradient(135deg,#fff8d9,#eef9f3);border:2px solid rgba(49,75,74,.08);box-shadow:var(--shadow);display:flex;justify-content:space-between;gap:18px;align-items:center}
 .rental-plan strong{font-size:18px}.rental-plan p{margin:7px 0 0;line-height:1.65;color:var(--muted)}.rental-plan>span{flex:0 0 auto;background:var(--ink);color:#fff;border-radius:999px;padding:9px 12px;font-weight:900;font-size:12px}
 @media(max-width:720px){.rental-plan{align-items:flex-start;flex-direction:column}.rental-plan>span{align-self:flex-start}}
+
+/* ===== Hotel itinerary ===== */
+.hotel-overview{margin:0 0 18px;padding:20px;border-radius:24px;background:rgba(255,253,249,.96);box-shadow:var(--shadow);border:2px solid rgba(49,75,74,.06)}
+.hotel-overview h2{margin:0 0 6px}.hotel-intro{font-size:13px;color:var(--muted);line-height:1.6;margin:0 0 15px}
+.hotel-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.hotel-item{display:flex;flex-direction:column;gap:5px;padding:12px 14px;background:#f2f9f5;border-radius:14px}
+.hotel-dates{font-size:12px;font-weight:900;color:#5d8f87}.hotel-item a,.hotel-item strong{font-size:14px;font-weight:900;color:var(--ink);text-decoration:none}.hotel-item a:hover{text-decoration:underline}
+.hotel-map-link{margin-left:10px;color:#d85f65;text-decoration:none;font-weight:800;display:inline-block}.hotel-change{font-size:13px;line-height:1.65;color:#755f38;background:#fff5da;padding:10px 12px;margin:9px 0 0;border-radius:12px}
+@media(max-width:650px){.hotel-list{grid-template-columns:1fr}.hotel-overview{padding:16px}.hotel-map-link{display:block;margin:7px 0 0}}
+
+.hotel-pin{background:#5b8f86;font-size:15px}

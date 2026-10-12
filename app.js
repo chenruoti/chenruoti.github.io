@@ -15,7 +15,16 @@ const tripStops = [
  {id:"kaikoura",name:"Kaikōura",lat:-42.4008,lng:173.6814,days:[8,9],note:"Point Kean 海豹、Whale Watching"},
  {id:"arion",name:"Arion Farm",lat:-43.4678,lng:172.4628,days:[10],note:"餵羊／摸羊；可搭配 Orana Wildlife Park"}
 ];
+const hotelStops = [
+ {name:"Sherwood Queenstown",lat:-45.0156,lng:168.6963,days:[1,2,3]},
+ {name:"Holiday Inn Queenstown Frankton Road",lat:-45.0164,lng:168.6980,days:[4,5]},
+ {name:"Mt Cook Lodge and Motels",lat:-43.735,lng:170.095,days:[6]},
+ {name:"Peppers Bluewater Resort",lat:-44.004,lng:170.482,days:[7]},
+ {name:"Kaikoura Beach Motel",lat:-42.408,lng:173.684,days:[8]},
+ {name:"ibis Christchurch",lat:-43.531,lng:172.635,days:[9,10,11]}
+];
 const dayRoutes = {
+ 0:[],
  1:["queenstown"],
  2:["queenstown","arrowtown","queenstown"],
  3:["queenstown","milford","queenstown"],
@@ -39,6 +48,11 @@ function drawMap(day="all"){
  const ids=day==="all"?[...new Set(Object.values(dayRoutes).flat())]:(dayRoutes[day]||[]);
  const shown=tripStops.filter(s=>ids.includes(s.id));
  shown.forEach((s,i)=>{const dayText=s.days.map(d=>"D"+d).join(" · ");const m=L.marker([s.lat,s.lng],{icon:pinIcon(day==="all"?(i+1):day)}).addTo(map).bindPopup(`<strong>${s.name}</strong><br>${dayText}<br>${s.note}<br><a target="_blank" rel="noopener" href="${gm(s.name)}">Google Maps ↗</a>`);mapLayers.push(m);});
+ hotelStops.filter(h=>day==="all"||h.days.includes(Number(day))).forEach(h=>{
+  const marker=L.marker([h.lat,h.lng],{icon:L.divIcon({className:"",html:'<div class="custom-pin hotel-pin">🏨</div>',iconSize:[30,30],iconAnchor:[15,15]})}).addTo(map)
+    .bindPopup(`<strong>🏨 ${h.name}</strong><br>${h.days.map(d=>'D'+d).join(' · ')}<br><a href="${gm(h.name)}" target="_blank" rel="noopener">飯店導航 ↗</a>`);
+  mapLayers.push(marker);
+ });
  if(day==="all"){
   const master=["queenstown","arrowtown","queenstown","milford","queenstown","wanaka","queenstown","cromwell","lindis","omarama","mtcook","tasman","mtcook","hooker","mtcook","pukaki","tekapo","chc","kaikoura","chc","arion","chc"];
   const pts=master.map(id=>tripStops.find(s=>s.id===id)).filter(Boolean).map(s=>[s.lat,s.lng]);
