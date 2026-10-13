@@ -6,6 +6,7 @@ const tripStops = [
  {id:"cromwell",name:"Cromwell",lat:-45.0385,lng:169.2000,days:[6],note:"11/3 自駕北上途經"},
  {id:"lindis",name:"Lindis Pass",lat:-44.5897,lng:169.6532,days:[6],note:"Queenstown → Mt Cook 景觀公路"},
  {id:"omarama",name:"Omarama",lat:-44.4882,lng:169.9677,days:[6],note:"途中休息"},
+ {id:"salmon",name:"Mt Cook Alpine Salmon Shop",lat:-44.1875,lng:170.1503,days:[6],note:"11/3 Lake Pukaki SH8 公路旁，途中吃鮭魚／生魚片"},
  {id:"mtcook",name:"Aoraki / Mt Cook",lat:-43.7340,lng:170.0967,days:[6,7],note:"Tasman Valley、Hooker Valley"},
  {id:"tasman",name:"Tasman Valley",lat:-43.6975,lng:170.1630,days:[6],note:"Tasman Glacier View、Tasman Lake"},
  {id:"hooker",name:"Hooker Valley Track",lat:-43.7193,lng:170.0932,days:[7],note:"White Horse Hill 起點"},
@@ -30,7 +31,7 @@ const dayRoutes = {
  3:["queenstown","milford","queenstown"],
  4:["queenstown","wanaka","queenstown"],
  5:["queenstown"],
- 6:["queenstown","cromwell","lindis","omarama","mtcook","tasman","mtcook"],
+ 6:["queenstown","cromwell","lindis","omarama","salmon","mtcook","tasman","mtcook"],
  7:["mtcook","hooker","mtcook","pukaki","tekapo"],
  8:["tekapo","chc","kaikoura"],
  9:["kaikoura","chc"],
@@ -54,7 +55,7 @@ function drawMap(day="all"){
   mapLayers.push(marker);
  });
  if(day==="all"){
-  const master=["queenstown","arrowtown","queenstown","milford","queenstown","wanaka","queenstown","cromwell","lindis","omarama","mtcook","tasman","mtcook","hooker","mtcook","pukaki","tekapo","chc","kaikoura","chc","arion","chc"];
+  const master=["queenstown","arrowtown","queenstown","milford","queenstown","wanaka","queenstown","cromwell","lindis","omarama","salmon","mtcook","tasman","mtcook","hooker","mtcook","pukaki","tekapo","chc","kaikoura","chc","arion","chc"];
   const pts=master.map(id=>tripStops.find(s=>s.id===id)).filter(Boolean).map(s=>[s.lat,s.lng]);
   mapLayers.push(L.polyline(pts,{weight:4,opacity:.7,dashArray:"8 8"}).addTo(map));
  }else{const pts=(dayRoutes[day]||[]).map(id=>tripStops.find(s=>s.id===id)).filter(Boolean).map(s=>[s.lat,s.lng]);if(pts.length>1)mapLayers.push(L.polyline(pts,{weight:5,opacity:.75,dashArray:"8 8"}).addTo(map));}
